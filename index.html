@@ -38,13 +38,16 @@
                         </div>
                     </div>
 
+                    <!-- Aggiungo v-model per rendere funzionale la barra di ricerca -->
                     <div id="search-input" class="no-shrink h-50 grey-bg d-flex align-center justify-center">
-                        <input class="input-width input-height grey-txt txt-15 p-10" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <!-- Collego tramite v-model searchInput all'input in pagina -->
+                        <input v-model="searchInput" class="input-width input-height grey-txt txt-15 p-10" type="text" placeholder="Cerca una chat" id="search_input">
                     </div>
 
                     <!-- Stampo i contatti con v-for -->
+                    <!-- Dopo la creazione di searchContact(), itero all'interno del nuovo array restituito dal metodo -->
                     <div id="contacts" class=" h-690 no-shrink overflow">
-                        <div v-for="(contact, index) in contacts" :key="index" @click="setChat(index)" class="chat-preview border-bottom p-10 d-flex justify-between">
+                        <div v-for="(contact, index) in searchContact()" :key="index" @click="setChat(index)" class="chat-preview border-bottom p-10 d-flex justify-between">
                             <div class="d-flex">
                                 <img class="propics" :src="contact.avatar" alt="">
                                 <div class="side-txt">
@@ -112,7 +115,7 @@
      <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
-    <script src="./versioning_log/milestone-3/main.js"></script>
+    <script src="./versioning_log/milestone-4/main.js"></script>
 
 </body>
 </html>

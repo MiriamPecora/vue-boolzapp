@@ -169,6 +169,7 @@ createApp({
         ],
         currentContact: 0,
         newMessage: "",
+        searchInput: "",
       };
     },
     methods: {
@@ -192,6 +193,15 @@ createApp({
             };
             this.contacts[this.currentContact].messages.push(replyMsg);
           }, 1000);
-        },     
+        },
+        searchContact() {
+            if (this.searchInput) {
+              return this.contacts.filter((contact) => 
+                { return contact.name.toLowerCase().includes(this.searchInput.toLowerCase());
+            });
+            } else {
+                return this.contacts;
+            }
+        },        
     },
   }).mount('#app');
