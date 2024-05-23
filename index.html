@@ -94,8 +94,9 @@
                         <div id="emoji" class="icons">
                             <img src="./assets/icons/face-smile-solid.svg" alt="1">
                         </div>
+                        <!-- Inserisco un event listener per la funzione sendMsgAutoPlay() così da gestire l'invio e la ricezione dei messaggi -->
                         <div id="write-a-messagge" class="w-100-input">
-                            <input class="input-txt grey-txt txt-15" type="text" placeholder="Scrivi un messaggio">
+                            <input v-model="newMessage" @keyup.enter="sendMsgAutoPlay()" id="inputMessage" class="input-txt grey-txt txt-15" type="text" placeholder="Scrivi un messaggio">
                         </div>
                         <div id="microphone" class="icons">
                             <img src="./assets/icons/microphone-solid.svg" alt="2">
@@ -111,7 +112,7 @@
      <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
-    <script src="./versioning_log/milestone-2/main.js"></script>
+    <script src="./versioning_log/milestone-3/main.js"></script>
 
 </body>
 </html>
