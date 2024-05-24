@@ -200,5 +200,8 @@ createApp({
                 visible: !this.searchInput || contact.name.toLowerCase().includes(research)
             }));
         },
+        deleteMessage(index) {
+            this.contacts[this.currentContact].messages.splice(index, 1);
+        },
     },  
   }).mount('#app');

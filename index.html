@@ -55,7 +55,7 @@
                                     <p></p>
                                 </div>
                             </div>
-                            <span>16:05</span>
+                            <span>{{ newDate }}</span>
                         </div>
                     </div>
 
@@ -85,9 +85,15 @@
                     <!-- Stampo i messaggi all'interno della chat tramite v-for -->
                     <div id="chat-viewport" class="p-messages d-flex flex-col">
                         <div v-for="(message, index) in contacts[currentContact].messages" :key="index" :class="message.status" class="border-radius m-10 w-55 p-20">
-                            <div class="d-flex">
+                            <div class="d-flex justify-between">
                                 <p>{{ message.message }}</p>
-                                <span class="arrow">&#8964;</span>
+                                <!-- Aggiungo un dropdown menu con all'interno l'opzione per eliminare un messaggio collegata alla funzione -->
+                                <button class="btn_arrow dropdown">&#8964;
+                                    <div class="dropdown-content">
+                                        <p>Message info</p>
+                                        <p @click="deleteMessage(index)">Delete Message</p>
+                                    </div>
+                                </button>
                             </div>
                             <span class="time grey-txt mt-10">16:13</span>
                         </div>
@@ -111,11 +117,10 @@
             </div>
         </div>
     </div>
-    
      <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
-    <script src="./versioning_log/milestone-4/main.js"></script>
+    <script src="./versioning_log/milestone-5/main.js"></script>
 
 </body>
 </html>
