@@ -47,7 +47,7 @@
                     <!-- Stampo i contatti con v-for -->
                     <!-- Dopo la creazione di searchContact(), itero all'interno del nuovo array restituito dal metodo -->
                     <div id="contacts" class=" h-690 no-shrink overflow">
-                        <div v-for="(contact, index) in searchContact()" :key="index" @click="setChat(index)" class="chat-preview border-bottom p-10 d-flex justify-between">
+                        <div v-for="(contact, index) in searchContact()" v-show="contact.visible" :key="index" @click="setChat(index)" class="chat-preview border-bottom p-10 d-flex justify-between">
                             <div class="d-flex">
                                 <img class="propics" :src="contact.avatar" alt="">
                                 <div class="side-txt">

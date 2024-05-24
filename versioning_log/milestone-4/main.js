@@ -147,7 +147,7 @@ createApp({
             {
                 name: 'Davide',
                 avatar: './assets/img/avatar_8.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -195,13 +195,11 @@ createApp({
           }, 1000);
         },
         searchContact() {
-            if (this.searchInput) {
-              return this.contacts.filter((contact) => 
-                { return contact.name.toLowerCase().includes(this.searchInput.toLowerCase());
-            });
-            } else {
-                return this.contacts;
-            }
-        },        
+            const research = this.searchInput.toLowerCase();
+            return this.contacts.map(contact => ({
+                ...contact,
+                visible: !this.searchInput || contact.name.toLowerCase().includes(research)
+            }));
+        }       
     },
   }).mount('#app');
